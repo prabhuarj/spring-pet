@@ -14,12 +14,13 @@ steps:
     SonarQube: 'SONAR_CLOUD'
     organization: 'sonardec24'
     scannerMode: 'other'
+    projectKey: 'sonardec24_springpetclinic'
 - task: Maven@4
   inputs:
     mavenPomFile: 'pom.xml'
     publishJUnitResults: true
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
-    sonarQubeRunAnalysis: false
+    sonarQubeRunAnalysis: true
     goals: 'package'
 - task: SonarCloudAnalyze@3
   inputs:
